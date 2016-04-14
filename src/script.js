@@ -92,7 +92,8 @@ d3.json('GDP-data.json', function(error, json) {
                 .duration(0)
                 .style('opacity', .9);
             div .html(function() {
-                return '<strong>' + d.year + ' ' + d.month + '</strong><br>'
+                var date = new Date(d[0])
+                return '<strong>$' + d[1].toLocaleString() + ' Billion</strong><br>' + months[date.getMonth() - 1] + ' ' + date.getFullYear()
             })
                 .style('left', (d3.event.pageX + 10) + 'px')
                 .style('top', (d3.event.pageY - 50) + 'px')
